@@ -29,6 +29,9 @@ parser.add_argument('--resume', '-r', action='store_true', help='resume from che
 parser.add_argument('--fast', default=1, type=int, help='Do it fast or slow')
 args = parser.parse_args()
 
+if args.fast: 
+	print("Running fast method") 
+
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 best_acc = 0  # best test accuracy
 start_epoch = 0  # start from epoch 0 or last checkpoint epoch
