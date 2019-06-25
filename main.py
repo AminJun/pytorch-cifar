@@ -11,13 +11,27 @@ import torchvision.transforms as transforms
 import os
 import argparse
 
+from torch.utils.data.dataset import Subset, Dataset, T_co
+
 from models import *
 from utils import progress_bar
+
+
+class BadAssLoader(Subset):
+    def __init__(self, dataset: Dataset[T_co]):
+        super().__init__(dataset, [])
+
+    def reset(self):
+        self.indices = []
+
+    def append(self, idx):
+        self.indices.append(idx)
 
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
+parser.add_argument('--fast', default=1, type=int, help='Do it fast or slow')
 args = parser.parse_args()
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -40,6 +54,8 @@ transform_test = transforms.Compose([
 
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
+bad_ass_set = BadAssLoader(trainset)
+bad_ass_loader = torch.utils.data.DataLoader(bad_ass_set, batch_size=128, shuffle=True, num_workers=2)
 
 testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
 testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=2)
@@ -49,7 +65,7 @@ classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship'
 # Model
 print('==> Building model..')
 # net = VGG('VGG19')
-# net = ResNet18()
+net = ResNet18()
 # net = PreActResNet18()
 # net = GoogLeNet()
 # net = DenseNet121()
@@ -60,7 +76,7 @@ print('==> Building model..')
 # net = ShuffleNetG2()
 # net = SENet18()
 # net = ShuffleNetV2(1)
-net = EfficientNetB0()
+# net = EfficientNetB0()
 net = net.to(device)
 if device == 'cuda':
     net = torch.nn.DataParallel(net)
@@ -78,14 +94,20 @@ if args.resume:
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=0.9, weight_decay=5e-4)
 
+
 # Training
-def train(epoch):
+def train(epoch, fast=False):
     print('\nEpoch: %d' % epoch)
     net.train()
     train_loss = 0
     correct = 0
     total = 0
-    for batch_idx, (inputs, targets) in enumerate(trainloader):
+    my_loader = trainloader
+    if fast:
+        my_loader = bad_ass_loader
+    else:
+        bad_ass_set.reset()
+    for batch_idx, (inputs, targets) in enumerate(my_loader):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
         outputs = net(inputs)
@@ -96,10 +118,13 @@ def train(epoch):
         train_loss += loss.item()
         _, predicted = outputs.max(1)
         total += targets.size(0)
+        import pdb
+        pdb.set_trace()
         correct += predicted.eq(targets).sum().item()
 
         progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-            % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+                     % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+
 
 def test(epoch):
     global best_acc
@@ -119,10 +144,10 @@ def test(epoch):
             correct += predicted.eq(targets).sum().item()
 
             progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+                         % (test_loss / (batch_idx + 1), 100. * correct / total, correct, total))
 
     # Save checkpoint.
-    acc = 100.*correct/total
+    acc = 100. * correct / total
     if acc > best_acc:
         print('Saving..')
         state = {
@@ -136,6 +161,6 @@ def test(epoch):
         best_acc = acc
 
 
-for epoch in range(start_epoch, start_epoch+200):
+for epoch in range(start_epoch, start_epoch + 200):
     train(epoch)
     test(epoch)
