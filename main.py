@@ -16,7 +16,7 @@ from torchvision.datasets import CIFAR10
 from torch.utils.data.dataset import Subset, Dataset
 
 from models import *
-from utils import progress_bar
+from utils import progress_bar, format_time
 
 
 class IDCifar(CIFAR10):
@@ -30,11 +30,11 @@ parser.add_argument('--resume', '-r', action='store_true', help='resume from che
 parser.add_argument('--fast', default=1, type=int, help='Do it fast or slow')
 args = parser.parse_args()
 
-if args.fast: 
-	print("Fast method") 
+if args.fast:
+    print("Fast method")
 else:
-	print("Boring method")
-start_time=time.time()
+    print("Boring method")
+start_time = time.time()
 print("Start time:\t{}".format(start_time))
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -179,17 +179,29 @@ def test(epoch):
         best_acc = acc
 
 
-if args.fast:
-    for epoch in range(start_epoch, start_epoch + 200, 2):
-        train(epoch)
-        test(epoch)
-        train(epoch+1, fast=True)
-        test(epoch+1)
-else:
-    for epoch in range(start_epoch, start_epoch + 200):
-        train(epoch)
-        test(epoch)
+mlr = args.lr
 
-end_time=time.time()
+
+def update_lr():
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
+
+
+for epoch in range(start_epoch, start_epoch + 350, 2):
+    if epoch == 0:
+        lr = 0.1
+        update_lr()
+    elif epoch == 150:
+        lr = 0.01
+        update_lr()
+    elif epoch == 250:
+        lr = 0.001
+        update_lr()
+    train(epoch)
+    test(epoch)
+    train(epoch + 1, fast=(args.fast == 1))
+    test(epoch + 1)
+
+end_time = time.time()
 print("End time:\t{}".format(end_time))
-print("Total time:\t{}".format(end_time - start_time))
+print("Total time:\t{}".format(format_time(end_time - start_time)))
