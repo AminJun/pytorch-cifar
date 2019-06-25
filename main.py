@@ -62,7 +62,7 @@ class BadAssLoader(Subset):
         self.indices.append(idx)
 
 
-bad_ass_set = BadAssLoader(trainset)
+bad_ass_set = BadAssLoader()
 bad_ass_loader = torch.utils.data.DataLoader(bad_ass_set, batch_size=128, shuffle=True, num_workers=2)
 
 testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
