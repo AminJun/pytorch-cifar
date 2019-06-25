@@ -7,6 +7,7 @@ import torch.backends.cudnn as cudnn
 
 import torchvision
 import torchvision.transforms as transforms
+import time
 
 import os
 import argparse
@@ -30,7 +31,11 @@ parser.add_argument('--fast', default=1, type=int, help='Do it fast or slow')
 args = parser.parse_args()
 
 if args.fast: 
-	print("Running fast method") 
+	print("Fast method") 
+else:
+	print("Boring method")
+start_time=time.time()
+print("Start time{}".format(start_time))
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 best_acc = 0  # best test accuracy
@@ -184,3 +189,7 @@ else:
     for epoch in range(start_epoch, start_epoch + 200):
         train(epoch)
         test(epoch)
+
+end_time=time.time()
+print("End time:{}".format(end_time))
+print("Time:{}".format(end_time - start_time))
