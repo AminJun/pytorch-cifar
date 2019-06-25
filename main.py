@@ -63,7 +63,6 @@ class BadAssLoader(Subset):
 
 
 bad_ass_set = BadAssLoader()
-bad_ass_loader = torch.utils.data.DataLoader(bad_ass_set, batch_size=128, shuffle=True, num_workers=2)
 
 testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
 testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False, num_workers=2)
@@ -112,7 +111,7 @@ def train(epoch, fast=False):
     total = 0
     my_loader = trainloader
     if fast:
-        my_loader = bad_ass_loader
+        my_loader = torch.utils.data.DataLoader(bad_ass_set, batch_size=128, shuffle=True, num_workers=2)
     else:
         bad_ass_set.reset()
     for batch_idx, (ids, inputs, targets) in enumerate(my_loader):
