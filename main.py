@@ -138,7 +138,7 @@ def train(epoch, fast=False):
             bad_ass_set.append(ids[eq_.eq(0)])
         correct += eq_.sum().item()
 
-        progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d) [Train]'
+        progress_bar(batch_idx, len(my_loader), 'Loss: %.3f | Acc: %.3f%% (%d/%d) [Train]'
                      % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
     if not fast:
         bad_ass_set.indices = torch.cat(bad_ass_set.indices).cpu().numpy()
@@ -175,7 +175,7 @@ def test(epoch):
         }
         if not os.path.isdir('checkpoint'):
             os.mkdir('checkpoint')
-        torch.save(state, './checkpoint/ckpt.pth')
+        torch.save(state, './checkpoint/ckpt{}.pth'.format(args.fast))
         best_acc = acc
 
 
