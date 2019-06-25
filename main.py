@@ -35,7 +35,7 @@ if args.fast:
 else:
 	print("Boring method")
 start_time=time.time()
-print("Start time{}".format(start_time))
+print("Start time:\t{}".format(start_time))
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 best_acc = 0  # best test accuracy
@@ -191,5 +191,5 @@ else:
         test(epoch)
 
 end_time=time.time()
-print("End time:{}".format(end_time))
-print("Time:{}".format(end_time - start_time))
+print("End time:\t{}".format(end_time))
+print("Total time:\t{}".format(end_time - start_time))
