@@ -114,7 +114,7 @@ def train(epoch, fast=False):
         my_loader = torch.utils.data.DataLoader(bad_ass_set, batch_size=128, shuffle=True, num_workers=2)
     else:
         bad_ass_set.reset()
-    for batch_idx, (ids, inputs, targets) in enumerate(my_loader):
+    for batch_idx, (ids, (inputs, targets)) in enumerate(my_loader):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
         outputs = net(inputs)
