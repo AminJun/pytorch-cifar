@@ -12,9 +12,15 @@ import os
 import argparse
 
 from torch.utils.data.dataset import Subset, Dataset, T_co
+from torchvision.datasets import CIFAR10
 
 from models import *
 from utils import progress_bar
+
+
+class IDCifar(CIFAR10):
+    def __getitem__(self, item):
+        return item, super(IDCifar, self).__getitem__(item)
 
 
 class BadAssLoader(Subset):
@@ -52,7 +58,7 @@ transform_test = transforms.Compose([
     transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
 ])
 
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
+trainset = IDCifar(root='./data', train=True, download=True, transform=transform_train)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
 bad_ass_set = BadAssLoader(trainset)
 bad_ass_loader = torch.utils.data.DataLoader(bad_ass_set, batch_size=128, shuffle=True, num_workers=2)
@@ -107,7 +113,7 @@ def train(epoch, fast=False):
         my_loader = bad_ass_loader
     else:
         bad_ass_set.reset()
-    for batch_idx, (inputs, targets) in enumerate(my_loader):
+    for batch_idx, (id, inputs, targets) in enumerate(my_loader):
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
         outputs = net(inputs)
