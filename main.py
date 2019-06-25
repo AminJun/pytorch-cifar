@@ -187,14 +187,14 @@ def update_lr():
         param_group['lr'] = lr
 
 
-for epoch in range(start_epoch, start_epoch + 350, 2):
+for epoch in range(start_epoch, start_epoch + 100, 2):
     if epoch == 0:
         lr = 0.1
         update_lr()
-    elif epoch == 150:
+    elif epoch == 50:
         lr = 0.01
         update_lr()
-    elif epoch == 250:
+    elif epoch == 76:
         lr = 0.001
         update_lr()
     train(epoch)
