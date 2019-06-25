@@ -125,12 +125,15 @@ def train(epoch, fast=False):
         train_loss += loss.item()
         _, predicted = outputs.max(1)
         total += targets.size(0)
-        import pdb
-        pdb.set_trace()
-        correct += predicted.eq(targets).sum().item()
+        eq_ = predicted.eq(targets)
+        if not fast:
+            bad_ass_set.append(ids[eq_.eq(0)])
+        correct += eq_.sum().item()
 
         progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
                      % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+    import pdb
+    pdb.set_trace()
 
 
 def test(epoch):
