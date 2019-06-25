@@ -132,8 +132,8 @@ def train(epoch, fast=False):
 
         progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
                      % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
-    import pdb
-    pdb.set_trace()
+    if not fast:
+        bad_ass_set.indices = torch.cat(bad_ass_set.indices).cpu().numpy()
 
 
 def test(epoch):
@@ -171,6 +171,13 @@ def test(epoch):
         best_acc = acc
 
 
-for epoch in range(start_epoch, start_epoch + 200):
-    train(epoch)
-    test(epoch)
+if args.fast:
+    for epoch in range(start_epoch, start_epoch + 200, 2):
+        train(epoch)
+        test(epoch)
+        train(epoch+1, fast=True)
+        test(epoch+1)
+else:
+    for epoch in range(start_epoch, start_epoch + 200):
+        train(epoch)
+        test(epoch)
