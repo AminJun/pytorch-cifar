@@ -27,7 +27,7 @@ class IDCifar(CIFAR10):
 
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
-parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
+parser.add_argument('--lr', default=0.001, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
 parser.add_argument('--fast', default=1, type=int, help='Do it fast or slow')
 parser.add_argument('--epochs', default=100, type=int)
@@ -219,7 +219,7 @@ for epoch in range(start_epoch, start_epoch + nst, 2):
 
     train(epoch + 1, fast=(args.fast == 1))
     test(epoch + 1)
-    print('Time:', epoch, time.time() - start_time, flush=True)
+    print('Time:', epoch + 1, time.time() - start_time, flush=True)
 
 end_time = time.time()
 print("End time:\t{}".format(end_time))
