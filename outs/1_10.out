@@ -1,0 +1,55 @@
+Fast method
+Start time:	1561510803.4432056
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+
+Epoch: 0
+Train 0 38.564
+Test 0 47.28
+Saving..
+
+Epoch: 1
+Train 1 45.15267921088613
+Test 1 45.83
+
+Epoch: 2
+Train 2 66.244
+Test 2 63.1
+Saving..
+
+Epoch: 3
+Train 3 45.491171939803294
+Test 3 69.08
+Saving..
+
+Epoch: 4
+Train 4 79.68
+Test 4 81.05
+Saving..
+
+Epoch: 5
+Train 5 38.218503937007874
+Test 5 77.8
+
+Epoch: 6
+Train 6 81.554
+Test 6 81.77
+Saving..
+
+Epoch: 7
+Train 7 36.604141819364635
+Test 7 81.82
+Saving..
+
+Epoch: 8
+Train 8 82.972
+Test 8 82.42
+Saving..
+
+Epoch: 9
+Train 9 31.101714822645054
+Test 9 81.64
+End time:	1561510973.2629917
+Total time:	169.81978607177734

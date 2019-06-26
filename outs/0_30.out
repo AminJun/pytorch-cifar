@@ -1,0 +1,145 @@
+Boring method
+Start time:	1561511163.194151
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+
+Epoch: 0
+Train 0 38.106
+Test 0 46.88
+Saving..
+
+Epoch: 1
+Train 1 58.812
+Test 1 63.24
+Saving..
+
+Epoch: 2
+Train 2 69.042
+Test 2 71.84
+Saving..
+
+Epoch: 3
+Train 3 75.192
+Test 3 72.24
+Saving..
+
+Epoch: 4
+Train 4 78.286
+Test 4 79.18
+Saving..
+
+Epoch: 5
+Train 5 80.132
+Test 5 77.08
+
+Epoch: 6
+Train 6 81.638
+Test 6 67.84
+
+Epoch: 7
+Train 7 82.576
+Test 7 75.91
+
+Epoch: 8
+Train 8 83.174
+Test 8 79.33
+Saving..
+
+Epoch: 9
+Train 9 83.842
+Test 9 81.92
+Saving..
+
+Epoch: 10
+Train 10 84.468
+Test 10 78.7
+
+Epoch: 11
+Train 11 84.748
+Test 11 79.14
+
+Epoch: 12
+Train 12 85.254
+Test 12 79.88
+
+Epoch: 13
+Train 13 85.446
+Test 13 75.74
+
+Epoch: 14
+Train 14 91.216
+Test 14 90.27
+Saving..
+
+Epoch: 15
+Train 15 92.868
+Test 15 90.89
+Saving..
+
+Epoch: 16
+Train 16 93.59
+Test 16 90.83
+
+Epoch: 17
+Train 17 94.116
+Test 17 91.17
+Saving..
+
+Epoch: 18
+Train 18 95.21
+Test 18 91.71
+Saving..
+
+Epoch: 19
+Train 19 95.344
+Test 19 91.78
+Saving..
+
+Epoch: 20
+Train 20 95.538
+Test 20 91.77
+
+Epoch: 21
+Train 21 95.58
+Test 21 91.78
+
+Epoch: 22
+Train 22 95.812
+Test 22 91.72
+
+Epoch: 23
+Train 23 95.648
+Test 23 91.92
+Saving..
+
+Epoch: 24
+Train 24 95.942
+Test 24 91.96
+Saving..
+
+Epoch: 25
+Train 25 95.894
+Test 25 92.01
+Saving..
+
+Epoch: 26
+Train 26 95.964
+Test 26 91.97
+
+Epoch: 27
+Train 27 96.084
+Test 27 92.03
+Saving..
+
+Epoch: 28
+Train 28 96.132
+Test 28 91.95
+
+Epoch: 29
+Train 29 96.07
+Test 29 92.09
+Saving..
+End time:	1561511906.7514195
+Total time:	743.5572686195374

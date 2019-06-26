@@ -16,7 +16,7 @@ from torchvision.datasets import CIFAR10
 from torch.utils.data.dataset import Subset, Dataset
 
 from models import *
-from utils import progress_bar, format_time
+#from utils import progress_bar
 
 
 class IDCifar(CIFAR10):
@@ -139,8 +139,9 @@ def train(epoch, fast=False):
             bad_ass_set.append(ids[eq_.eq(0)])
         correct += eq_.sum().item()
 
-        progress_bar(batch_idx, len(my_loader), 'Loss: %.3f | Acc: %.3f%% (%d/%d) [Train]'
-                     % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+        #progress_bar(batch_idx, len(my_loader), 'Loss: %.3f | Acc: %.3f%% (%d/%d) [Train]'
+        #             % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+    print("Train", epoch, 100. * correct /total)
     if not fast:
         bad_ass_set.indices = torch.cat(bad_ass_set.indices).cpu().numpy()
 
@@ -162,8 +163,10 @@ def test(epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
 
-            progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d) [Test]'
-                         % (test_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+            #progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d) [Test]'
+            #             % (test_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+            
+    print("Test", epoch, 100. * correct /total)
 
     # Save checkpoint.
     acc = 100. * correct / total
@@ -206,4 +209,4 @@ for epoch in range(start_epoch, start_epoch + nst, 2):
 
 end_time = time.time()
 print("End time:\t{}".format(end_time))
-print("Total time:\t{}".format(format_time(end_time - start_time)))
+print("Total time:\t{}".format(end_time - start_time))

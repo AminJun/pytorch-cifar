@@ -1,0 +1,466 @@
+Fast method
+Start time:	1561519083.3698094
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+
+Epoch: 0
+Train 0 37.576
+Test 0 49.98
+Saving..
+
+Epoch: 1
+Train 1 43.76842240164039
+Test 1 39.99
+
+Epoch: 2
+Train 2 64.426
+Test 2 65.91
+Saving..
+
+Epoch: 3
+Train 3 42.323044920447515
+Test 3 64.97
+
+Epoch: 4
+Train 4 73.538
+Test 4 63.04
+
+Epoch: 5
+Train 5 44.085858967576144
+Test 5 72.25
+Saving..
+
+Epoch: 6
+Train 6 78.458
+Test 6 77.7
+Saving..
+
+Epoch: 7
+Train 7 46.33738742920806
+Test 7 73.43
+
+Epoch: 8
+Train 8 80.474
+Test 8 73.22
+
+Epoch: 9
+Train 9 47.24982075181809
+Test 9 76.52
+
+Epoch: 10
+Train 10 82.39
+Test 10 72.55
+
+Epoch: 11
+Train 11 47.66609880749574
+Test 11 72.44
+
+Epoch: 12
+Train 12 83.296
+Test 12 71.94
+
+Epoch: 13
+Train 13 49.42528735632184
+Test 13 67.3
+
+Epoch: 14
+Train 14 84.468
+Test 14 79.91
+Saving..
+
+Epoch: 15
+Train 15 50.92711820757147
+Test 15 75.08
+
+Epoch: 16
+Train 16 84.762
+Test 16 79.58
+
+Epoch: 17
+Train 17 51.10906943168395
+Test 17 68.71
+
+Epoch: 18
+Train 18 85.528
+Test 18 77.02
+
+Epoch: 19
+Train 19 52.55666113875069
+Test 19 76.24
+
+Epoch: 20
+Train 20 85.932
+Test 20 78.31
+
+Epoch: 21
+Train 21 54.63463178845607
+Test 21 73.92
+
+Epoch: 22
+Train 22 86.252
+Test 22 79.25
+
+Epoch: 23
+Train 23 54.1460576083794
+Test 23 82.26
+Saving..
+
+Epoch: 24
+Train 24 86.58
+Test 24 78.28
+
+Epoch: 25
+Train 25 55.84202682563338
+Test 25 77.23
+
+Epoch: 26
+Train 26 86.992
+Test 26 85.51
+Saving..
+
+Epoch: 27
+Train 27 55.55043050430504
+Test 27 77.66
+
+Epoch: 28
+Train 28 86.946
+Test 28 83.92
+
+Epoch: 29
+Train 29 58.035851080128694
+Test 29 81.64
+
+Epoch: 30
+Train 30 87.382
+Test 30 83.42
+
+Epoch: 31
+Train 31 58.028213663021084
+Test 31 73.97
+
+Epoch: 32
+Train 32 87.632
+Test 32 81.28
+
+Epoch: 33
+Train 33 57.16364812419146
+Test 33 69.39
+
+Epoch: 34
+Train 34 87.828
+Test 34 84.72
+
+Epoch: 35
+Train 35 58.100558659217874
+Test 35 81.7
+
+Epoch: 36
+Train 36 87.86
+Test 36 83.57
+
+Epoch: 37
+Train 37 58.319604612850085
+Test 37 76.26
+
+Epoch: 38
+Train 38 87.85
+Test 38 83.26
+
+Epoch: 39
+Train 39 61.547325102880656
+Test 39 75.82
+
+Epoch: 40
+Train 40 88.07
+Test 40 83.48
+
+Epoch: 41
+Train 41 60.36881810561609
+Test 41 79.39
+
+Epoch: 42
+Train 42 88.224
+Test 42 82.84
+
+Epoch: 43
+Train 43 59.66372282608695
+Test 43 78.48
+
+Epoch: 44
+Train 44 88.796
+Test 44 84.6
+
+Epoch: 45
+Train 45 60.63905747947162
+Test 45 57.11
+
+Epoch: 46
+Train 46 88.522
+Test 46 82.91
+
+Epoch: 47
+Train 47 58.285415577626765
+Test 47 79.71
+
+Epoch: 48
+Train 48 88.624
+Test 48 78.4
+
+Epoch: 49
+Train 49 60.530942334739805
+Test 49 85.01
+
+Epoch: 50
+Train 50 88.706
+Test 50 75.97
+
+Epoch: 51
+Train 51 61.44855675579954
+Test 51 76.51
+
+Epoch: 52
+Train 52 88.752
+Test 52 82.76
+
+Epoch: 53
+Train 53 61.78876244665718
+Test 53 79.62
+
+Epoch: 54
+Train 54 93.988
+Test 54 92.39
+Saving..
+
+Epoch: 55
+Train 55 64.40452428476381
+Test 55 89.68
+
+Epoch: 56
+Train 56 96.014
+Test 56 92.65
+Saving..
+
+Epoch: 57
+Train 57 65.7802308078274
+Test 57 90.42
+
+Epoch: 58
+Train 58 96.522
+Test 58 92.88
+Saving..
+
+Epoch: 59
+Train 59 70.04025301897643
+Test 59 89.03
+
+Epoch: 60
+Train 60 97.092
+Test 60 93.28
+Saving..
+
+Epoch: 61
+Train 61 75.79092159559835
+Test 61 91.42
+
+Epoch: 62
+Train 62 97.498
+Test 62 93.32
+Saving..
+
+Epoch: 63
+Train 63 79.53637090327737
+Test 63 91.91
+
+Epoch: 64
+Train 64 97.706
+Test 64 92.9
+
+Epoch: 65
+Train 65 84.56843940714909
+Test 65 92.89
+
+Epoch: 66
+Train 66 97.992
+Test 66 93.07
+
+Epoch: 67
+Train 67 86.15537848605578
+Test 67 92.4
+
+Epoch: 68
+Train 68 98.246
+Test 68 93.26
+
+Epoch: 69
+Train 69 87.34321550741163
+Test 69 93.02
+
+Epoch: 70
+Train 70 98.38
+Test 70 93.26
+
+Epoch: 71
+Train 71 88.39506172839506
+Test 71 92.74
+
+Epoch: 72
+Train 72 98.494
+Test 72 93.43
+Saving..
+
+Epoch: 73
+Train 73 90.83665338645419
+Test 73 93.32
+
+Epoch: 74
+Train 74 98.686
+Test 74 93.35
+
+Epoch: 75
+Train 75 90.8675799086758
+Test 75 93.29
+
+Epoch: 76
+Train 76 98.412
+Test 76 93.08
+
+Epoch: 77
+Train 77 92.31738035264483
+Test 77 92.97
+
+Epoch: 78
+Train 78 99.18
+Test 78 93.91
+Saving..
+
+Epoch: 79
+Train 79 85.1219512195122
+Test 79 93.82
+
+Epoch: 80
+Train 80 99.382
+Test 80 93.98
+Saving..
+
+Epoch: 81
+Train 81 89.96763754045307
+Test 81 93.95
+
+Epoch: 82
+Train 82 99.48
+Test 82 94.05
+Saving..
+
+Epoch: 83
+Train 83 89.23076923076923
+Test 83 93.97
+
+Epoch: 84
+Train 84 99.478
+Test 84 93.93
+
+Epoch: 85
+Train 85 86.97318007662835
+Test 85 94.03
+
+Epoch: 86
+Train 86 99.562
+Test 86 93.89
+
+Epoch: 87
+Train 87 85.84474885844749
+Test 87 93.93
+
+Epoch: 88
+Train 88 99.582
+Test 88 93.98
+
+Epoch: 89
+Train 89 92.3444976076555
+Test 89 94.02
+
+Epoch: 90
+Train 90 99.588
+Test 90 93.96
+
+Epoch: 91
+Train 91 96.11650485436893
+Test 91 94.02
+
+Epoch: 92
+Train 92 99.63
+Test 92 94.05
+
+Epoch: 93
+Train 93 95.13513513513513
+Test 93 94.01
+
+Epoch: 94
+Train 94 99.648
+Test 94 94.02
+
+Epoch: 95
+Train 95 93.18181818181819
+Test 95 93.99
+
+Epoch: 96
+Train 96 99.698
+Test 96 93.94
+
+Epoch: 97
+Train 97 96.6887417218543
+Test 97 94.02
+
+Epoch: 98
+Train 98 99.69
+Test 98 94.09
+Saving..
+
+Epoch: 99
+Train 99 88.38709677419355
+Test 99 93.99
+
+Epoch: 100
+Train 100 99.732
+Test 100 93.91
+
+Epoch: 101
+Train 101 94.02985074626865
+Test 101 93.93
+
+Epoch: 102
+Train 102 99.664
+Test 102 94.14
+Saving..
+
+Epoch: 103
+Train 103 95.23809523809524
+Test 103 93.98
+
+Epoch: 104
+Train 104 99.732
+Test 104 94.14
+
+Epoch: 105
+Train 105 94.02985074626865
+Test 105 94.02
+
+Epoch: 106
+Train 106 99.72
+Test 106 93.8
+
+Epoch: 107
+Train 107 90.0
+Test 107 93.83
+
+Epoch: 108
+Train 108 99.734
+Test 108 93.97
+
+Epoch: 109
+Train 109 94.73684210526316
+Test 109 93.87
+End time:	1561520643.7865953
+Total time:	1560.416785955429

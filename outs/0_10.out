@@ -1,0 +1,58 @@
+Boring method
+Start time:	1561510684.524234
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+
+Epoch: 0
+Train 0 38.254
+Test 0 47.76
+Saving..
+
+Epoch: 1
+Train 1 57.392
+Test 1 58.07
+Saving..
+
+Epoch: 2
+Train 2 67.528
+Test 2 63.89
+Saving..
+
+Epoch: 3
+Train 3 73.796
+Test 3 70.08
+Saving..
+
+Epoch: 4
+Train 4 81.794
+Test 4 82.77
+Saving..
+
+Epoch: 5
+Train 5 84.162
+Test 5 83.64
+Saving..
+
+Epoch: 6
+Train 6 85.624
+Test 6 84.44
+Saving..
+
+Epoch: 7
+Train 7 85.646
+Test 7 84.8
+Saving..
+
+Epoch: 8
+Train 8 86.072
+Test 8 85.03
+Saving..
+
+Epoch: 9
+Train 9 86.26
+Test 9 85.11
+Saving..
+End time:	1561510932.4982111
+Total time:	247.97397708892822
