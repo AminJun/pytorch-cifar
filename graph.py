@@ -24,8 +24,8 @@ def main():
 
     args = parse.parse_args()
 
-    plt.ylabel('Certificate Accuracy %')
-    plt.xlabel('Radius')
+    plt.ylabel('Accuracy %')
+    plt.xlabel('Time (sec)')
     for file, label in zip(args.files, args.labels):
         file = os.path.join(args.dir, file)
         draw(file, label)
