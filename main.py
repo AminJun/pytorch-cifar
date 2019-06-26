@@ -210,7 +210,7 @@ for epoch in range(start_epoch, start_epoch + nst, 2):
 
     train(epoch)
     test(epoch)
-    print('Time:', epoch, time.time() - start_time)
+    print('Time:', epoch, time.time() - start_time, flush=True)
 
     if args.fast and args.change_lr:
         old_lr = lr
@@ -219,7 +219,7 @@ for epoch in range(start_epoch, start_epoch + nst, 2):
 
     train(epoch + 1, fast=(args.fast == 1))
     test(epoch + 1)
-    print('Time:', epoch, time.time() - start_time)
+    print('Time:', epoch, time.time() - start_time, flush=True)
 
 end_time = time.time()
 print("End time:\t{}".format(end_time))
