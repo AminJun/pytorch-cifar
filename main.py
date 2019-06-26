@@ -205,6 +205,7 @@ for epoch in range(start_epoch, start_epoch + nst, 2):
 
     train(epoch)
     test(epoch)
+    print('Time:', epoch, time.time() - start_time)
 
     if args.fast:
         lr *= float(len(bad_ass_set)) / float(len(trainset))
@@ -212,6 +213,7 @@ for epoch in range(start_epoch, start_epoch + nst, 2):
 
     train(epoch + 1, fast=(args.fast == 1))
     test(epoch + 1)
+    print('Time:', epoch, time.time() - start_time)
 
 end_time = time.time()
 print("End time:\t{}".format(end_time))
