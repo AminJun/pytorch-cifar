@@ -12,7 +12,7 @@ for w in 'boring' 'fast' ; do
 	len=$(cat "${f}" | grep "Test" | wc -l) 
 	for i in `seq 1 ${len}` ; do 
 		t=$(cat "${f}" | grep "Time" | tail -n "${i}" | head -n 1 | awk '{print $3}')
-		e=$(cat "${f}" | grep "Time" | tail -n "${i}" | head -n 1 | awk '{print $2}')
+		e=$(cat "${f}" | grep "Train" | tail -n "${i}" | head -n 1 | awk '{print $2}')
 		tr=$(cat "${f}" | grep "Train" | tail -n "${i}" | head -n 1 | awk '{print $3}')
 		ts=$(cat "${f}" | grep "Test" | tail -n "${i}" | head -n 1 | awk '{print $3}')
 		echo -e "$t\t$tr\t$ts"
