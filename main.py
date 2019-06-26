@@ -207,6 +207,7 @@ for epoch in range(start_epoch, start_epoch + nst, 2):
     # update_lr()
     if args.fast and args.change_lr:
         lr = old_lr
+        update_lr()
 
     train(epoch)
     test(epoch)
