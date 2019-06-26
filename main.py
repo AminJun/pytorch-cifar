@@ -195,19 +195,21 @@ def update_lr():
 
 nst = args.epochs
 for epoch in range(start_epoch, start_epoch + nst, 2):
-    if epoch == 0:
-        lr = 0.1
-        update_lr()
-    elif epoch == (nst // 4) * 2:
-        lr = 0.01
-        update_lr()
-    elif epoch == (nst // 8) * 6:
+    if epoch >= (nst / 4) * 3:
         lr = 0.001
-        update_lr()
+    elif epoch >= (nst / 2):
+        lr = 0.01
+    else:
+        lr = 0.1
+    update_lr()
+
     train(epoch)
     test(epoch)
+
     if args.fast:
         lr *= float(len(bad_ass_set)) / float(len(trainset))
+        update_lr()
+
     train(epoch + 1, fast=(args.fast == 1))
     test(epoch + 1)
 
