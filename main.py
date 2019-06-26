@@ -28,6 +28,7 @@ parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
 parser.add_argument('--fast', default=1, type=int, help='Do it fast or slow')
+parser.add_argument('--epochs', default=100, type=int)
 args = parser.parse_args()
 
 if args.fast:
@@ -175,7 +176,7 @@ def test(epoch):
         }
         if not os.path.isdir('checkpoint'):
             os.mkdir('checkpoint')
-        torch.save(state, './checkpoint/ckpt{}.pth'.format(args.fast))
+        torch.save(state, './checkpoint/ckpt{}_{}.pth'.format(args.fast, args.epochs))
         best_acc = acc
 
 
@@ -187,14 +188,15 @@ def update_lr():
         param_group['lr'] = lr
 
 
-for epoch in range(start_epoch, start_epoch + 350, 2):
+nst = args.epochs
+for epoch in range(start_epoch, start_epoch + nst, 2):
     if epoch == 0:
         lr = 0.1
         update_lr()
-    elif epoch == 150:
+    elif epoch == (nst // 4) * 2:
         lr = 0.01
         update_lr()
-    elif epoch == 250:
+    elif epoch == (nst // 8) * 6:
         lr = 0.001
         update_lr()
     train(epoch)
