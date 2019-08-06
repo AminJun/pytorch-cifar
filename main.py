@@ -31,7 +31,7 @@ parser.add_argument('--lr', default=0.001, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
 parser.add_argument('--fast', default=1, type=int, help='Do it fast or slow')
 parser.add_argument('--epochs', default=100, type=int)
-parser.add_argument('--change_lr', default=0, type=int)
+parser.add_argument('--change_lr', default=1, type=int)
 args = parser.parse_args()
 
 if args.fast:
@@ -198,23 +198,19 @@ nst = args.epochs
 old_lr = lr
 
 for epoch in range(start_epoch, start_epoch + nst, 2):
-    # if epoch >= (nst / 4) * 3:
-    #     lr = 0.001
-    # elif epoch >= (nst / 2):
-    #     lr = 0.01
-    # else:
-    #     lr = 0.1
-    # update_lr()
-    if args.fast and args.change_lr:
-        lr = old_lr
-        update_lr()
+    if epoch >= (nst / 4) * 3:
+        lr = 0.00001
+    elif epoch >= (nst / 2):
+        lr = 0.0001
+    else:
+        lr = 0.001
+    update_lr()
 
     train(epoch)
     test(epoch)
     print('Time:', epoch, time.time() - start_time, flush=True)
 
     if args.fast and args.change_lr:
-        old_lr = lr
         lr *= float(len(bad_ass_set)) / float(len(trainset))
         update_lr()
 
